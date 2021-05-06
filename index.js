@@ -4,16 +4,28 @@ const insetionSort = (arr = []) => {
 
 	 while (i < arr.length) {
 		 
-		 let temp = arr[i];
+		 // Storing current item to be validated
+		 let currentItem = arr[i];
 		 
 		 let j = i;
 		 
-		 while (j > 0 && arr[j - 1] > temp) {
+		 /*
+		  *  Validating if current item is smaller than the 
+		  *  item one index before.
+		  */
+		 while (j > 0 && currentItem < arr[j - 1]) {
+			/**
+			 * If current item is smaler we move the item before (j - 1) one
+			 * position above "j"
+			 */
 			arr[j] = arr[j - 1];
+
+			// We decrease the index so we can validate below items.
 			j--;
 		}
 
-		arr[j] = temp; 
+		// Finally we assign the stored item to the final position of "j"
+		arr[j] = currentItem; 
 
 		i++;
 	}
